@@ -20,9 +20,9 @@ const Navigation = () => {
       icon: FileText,
       color: "from-blue-500 to-cyan-500",
       services: [
-        { name: "Personal Tax Returns", description: "Complete 1040 preparation", price: "From $150" },
-        { name: "Itemized Deductions", description: "Maximize your deductions", price: "Included" },
-        { name: "Tax Credits", description: "Child, education & more", price: "Included" }
+        { name: "Personal Tax Returns", description: "Complete 1040 preparation" },
+        { name: "Itemized Deductions", description: "Maximize your deductions" },
+        { name: "Tax Credits", description: "Child, education & more" }
       ]
     },
     {
@@ -30,9 +30,9 @@ const Navigation = () => {
       icon: Building2,
       color: "from-purple-500 to-pink-500",
       services: [
-        { name: "Corporate Returns", description: "C-Corp & S-Corp filing", price: "From $350" },
-        { name: "Partnership Filings", description: "LLC & partnership returns", price: "From $250" },
-        { name: "Quarterly Estimates", description: "Business tax planning", price: "From $100" }
+        { name: "Corporate Returns", description: "C-Corp & S-Corp filing" },
+        { name: "Partnership Filings", description: "LLC & partnership returns" },
+        { name: "Quarterly Estimates", description: "Business tax planning" }
       ]
     },
     {
@@ -40,9 +40,9 @@ const Navigation = () => {
       icon: Calculator,
       color: "from-green-500 to-emerald-500",
       services: [
-        { name: "Tax Planning", description: "Year-round strategy", price: "From $200" },
-        { name: "Investment Taxes", description: "Capital gains & losses", price: "From $180" },
-        { name: "Retirement Planning", description: "IRA & 401(k) optimization", price: "From $150" }
+        { name: "Tax Planning", description: "Year-round strategy" },
+        { name: "Investment Taxes", description: "Capital gains & losses" },
+        { name: "Retirement Planning", description: "IRA & 401(k) optimization" }
       ]
     },
     {
@@ -50,9 +50,9 @@ const Navigation = () => {
       icon: Shield,
       color: "from-red-500 to-orange-500",
       services: [
-        { name: "IRS Representation", description: "Audit defense & support", price: "From $500" },
-        { name: "Payment Plans", description: "Installment agreements", price: "From $300" },
-        { name: "Penalty Abatement", description: "Reduce IRS penalties", price: "From $400" }
+        { name: "IRS Representation", description: "Audit defense & support" },
+        { name: "Payment Plans", description: "Installment agreements" },
+        { name: "Penalty Abatement", description: "Reduce IRS penalties" }
       ]
     }
   ];
@@ -197,23 +197,17 @@ const Navigation = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[800px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
                           onMouseEnter={() => setServicesHovered(true)}
                           onMouseLeave={() => setServicesHovered(false)}
                         >
                           {/* Header */}
-                          <div className="bg-gradient-to-r from-primary to-primary/90 p-6 text-white">
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <h3 className="text-xl font-bold mb-2">Our Tax Services</h3>
-                                <p className="text-primary-foreground/80 text-sm">
-                                  Professional tax preparation for individuals and businesses
-                                </p>
-                              </div>
-                              <div className="flex items-center gap-2 text-sm">
-                                <Star className="h-4 w-4 text-yellow-300" />
-                                <span>25+ Years Experience</span>
-                              </div>
+                          <div className="bg-gradient-to-r from-primary to-primary/90 p-4 text-white">
+                            <div className="text-center">
+                              <h3 className="text-lg font-bold">Our Services</h3>
+                              <p className="text-primary-foreground/80 text-sm">
+                                Professional tax preparation for individuals and businesses
+                              </p>
                             </div>
                           </div>
 
@@ -239,30 +233,27 @@ const Navigation = () => {
                                   
                                   <div className="space-y-3">
                                     {category.services.map((service, serviceIndex) => (
-                                      <motion.div
-                                        key={service.name}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: (index * 0.1) + (serviceIndex * 0.05) }}
-                                        className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer group"
-                                        onClick={() => {
-                                          const contactSection = document.getElementById('contact');
-                                          if (contactSection) {
-                                            contactSection.scrollIntoView({ behavior: 'smooth' });
-                                          }
-                                        }}
-                                      >
-                                        <div className="flex-1">
-                                          <h5 className="font-medium text-gray-900 text-sm group-hover:text-primary transition-colors">
-                                            {service.name}
-                                          </h5>
-                                          <p className="text-gray-500 text-xs">{service.description}</p>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                          <span className="text-xs font-medium text-primary">{service.price}</span>
-                                          <ArrowRight className="h-3 w-3 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200" />
-                                        </div>
-                                      </motion.div>
+                                                                             <motion.div
+                                         key={service.name}
+                                         initial={{ opacity: 0, y: 10 }}
+                                         animate={{ opacity: 1, y: 0 }}
+                                         transition={{ delay: (index * 0.1) + (serviceIndex * 0.05) }}
+                                         className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer group"
+                                         onClick={() => {
+                                           const contactSection = document.getElementById('contact');
+                                           if (contactSection) {
+                                             contactSection.scrollIntoView({ behavior: 'smooth' });
+                                           }
+                                         }}
+                                       >
+                                         <div className="flex-1">
+                                           <h5 className="font-medium text-gray-900 text-sm group-hover:text-primary transition-colors">
+                                             {service.name}
+                                           </h5>
+                                           <p className="text-gray-500 text-xs">{service.description}</p>
+                                         </div>
+                                         <ArrowRight className="h-3 w-3 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200" />
+                                       </motion.div>
                                     ))}
                                   </div>
                                 </motion.div>
@@ -274,26 +265,20 @@ const Navigation = () => {
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.4 }}
-                              className="mt-6 pt-6 border-t border-gray-100"
+                              className="mt-4 pt-4 border-t border-gray-100 text-center"
                             >
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-2 text-sm text-gray-600">
-                                  <CheckCircle className="h-4 w-4 text-green-500" />
-                                  <span>Free consultation included</span>
-                                </div>
-                                <Button
-                                  size="sm"
-                                  className="bg-primary hover:bg-primary/90"
-                                  onClick={() => {
-                                    const processSection = document.getElementById('process-section');
-                                    if (processSection) {
-                                      processSection.scrollIntoView({ behavior: 'smooth' });
-                                    }
-                                  }}
-                                >
-                                  Get Started
-                                </Button>
-                              </div>
+                              <Button
+                                size="sm"
+                                className="bg-primary hover:bg-primary/90"
+                                onClick={() => {
+                                  const processSection = document.getElementById('process-section');
+                                  if (processSection) {
+                                    processSection.scrollIntoView({ behavior: 'smooth' });
+                                  }
+                                }}
+                              >
+                                Get Started
+                              </Button>
                             </motion.div>
                           </div>
                         </motion.div>
