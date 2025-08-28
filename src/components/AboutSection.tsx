@@ -57,7 +57,7 @@ const AboutSection = () => {
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Led by Maria Vargas, CPA, our team combines decades of experience with 
+              As a family-owned business, our team combines decades of experience with 
               the latest tax knowledge to ensure you receive maximum refunds and 
               maintain full compliance with tax regulations.
             </p>
@@ -143,12 +143,12 @@ const AboutSection = () => {
                     </div>
                   </div>
                   <p className="text-muted-foreground italic mb-3">
-                    "Maria and her team are absolutely fantastic! They found deductions 
-                    I never knew existed and got me a much larger refund than expected. 
+                    "The Vargas family team is absolutely fantastic! They found deductions 
+                    we never knew existed and got us a much larger refund than expected. 
                     Professional, thorough, and trustworthy."
                   </p>
                   <div className="font-semibold text-foreground">
-                    - Robert Johnson, Small Business Owner
+                    - Local Family Business Owner
                   </div>
                 </div>
 
@@ -166,7 +166,7 @@ const AboutSection = () => {
                     Highly recommend!"
                   </p>
                   <div className="font-semibold text-foreground">
-                    - Sarah Martinez, Marketing Executive
+                    - Long-term Client, Houston
                   </div>
                 </div>
               </div>

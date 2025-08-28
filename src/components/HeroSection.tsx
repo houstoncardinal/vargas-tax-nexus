@@ -246,7 +246,7 @@ const HeroSection = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.9 }}
                 >
-                  — Maria Rodriguez, Satisfied Client
+                  — Satisfied Client, Houston
                 </motion.p>
               </motion.div>
             </motion.div>
