@@ -265,20 +265,28 @@ const Navigation = () => {
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.4 }}
-                              className="mt-4 pt-4 border-t border-gray-100 text-center"
+                              className="mt-4 pt-4 border-t border-gray-100"
                             >
-                              <Button
-                                size="sm"
-                                className="bg-primary hover:bg-primary/90"
-                                onClick={() => {
-                                  const processSection = document.getElementById('process-section');
-                                  if (processSection) {
-                                    processSection.scrollIntoView({ behavior: 'smooth' });
-                                  }
-                                }}
-                              >
-                                Get Started
-                              </Button>
+                              <div className="text-center space-y-3">
+                                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                                  <CheckCircle className="h-4 w-4 text-green-500" />
+                                  <span className="font-medium">Filing fees start as low as</span>
+                                  <span className="text-lg font-bold text-primary">$295</span>
+                                  <span className="text-xs text-gray-500">for first-time filers</span>
+                                </div>
+                                <Button
+                                  size="sm"
+                                  className="bg-primary hover:bg-primary/90"
+                                  onClick={() => {
+                                    const processSection = document.getElementById('process-section');
+                                    if (processSection) {
+                                      processSection.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                  }}
+                                >
+                                  Get Started
+                                </Button>
+                              </div>
                             </motion.div>
                           </div>
                         </motion.div>
