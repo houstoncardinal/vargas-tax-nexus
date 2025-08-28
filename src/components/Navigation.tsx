@@ -1,16 +1,60 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, FileText, Building2, Calculator, Shield, Clock, TrendingUp, Users, ArrowRight, Star, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesHovered, setServicesHovered] = useState(false);
 
   const navLinks = [
-    { label: "Services", href: "#services" },
+    { label: "Services", href: "#services", hasMegaMenu: true },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
+  ];
+
+  const servicesData = [
+    {
+      category: "Individual Services",
+      icon: FileText,
+      color: "from-blue-500 to-cyan-500",
+      services: [
+        { name: "Personal Tax Returns", description: "Complete 1040 preparation", price: "From $150" },
+        { name: "Itemized Deductions", description: "Maximize your deductions", price: "Included" },
+        { name: "Tax Credits", description: "Child, education & more", price: "Included" }
+      ]
+    },
+    {
+      category: "Business Services",
+      icon: Building2,
+      color: "from-purple-500 to-pink-500",
+      services: [
+        { name: "Corporate Returns", description: "C-Corp & S-Corp filing", price: "From $350" },
+        { name: "Partnership Filings", description: "LLC & partnership returns", price: "From $250" },
+        { name: "Quarterly Estimates", description: "Business tax planning", price: "From $100" }
+      ]
+    },
+    {
+      category: "Specialized Services",
+      icon: Calculator,
+      color: "from-green-500 to-emerald-500",
+      services: [
+        { name: "Tax Planning", description: "Year-round strategy", price: "From $200" },
+        { name: "Investment Taxes", description: "Capital gains & losses", price: "From $180" },
+        { name: "Retirement Planning", description: "IRA & 401(k) optimization", price: "From $150" }
+      ]
+    },
+    {
+      category: "Resolution Services",
+      icon: Shield,
+      color: "from-red-500 to-orange-500",
+      services: [
+        { name: "IRS Representation", description: "Audit defense & support", price: "From $500" },
+        { name: "Payment Plans", description: "Installment agreements", price: "From $300" },
+        { name: "Penalty Abatement", description: "Reduce IRS penalties", price: "From $400" }
+      ]
+    }
   ];
 
   useEffect(() => {
@@ -111,26 +155,152 @@ const Navigation = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  custom={i}
-                  variants={linkVariants}
-                  className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative group"
-                  whileHover={{ 
-                    y: -1,
-                    transition: { duration: 0.2 }
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10">{link.label}</span>
-                  <motion.div
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </motion.a>
+                <div key={link.label} className="relative">
+                  <motion.a
+                    href={link.href}
+                    custom={i}
+                    variants={linkVariants}
+                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium relative group cursor-pointer"
+                    whileHover={{ 
+                      y: -1,
+                      transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    onMouseEnter={() => link.hasMegaMenu && setServicesHovered(true)}
+                    onMouseLeave={() => link.hasMegaMenu && setServicesHovered(false)}
+                  >
+                    <span className="relative z-10 flex items-center gap-1">
+                      {link.label}
+                      {link.hasMegaMenu && (
+                        <motion.div
+                          animate={{ rotate: servicesHovered ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ArrowRight className="h-3 w-3" />
+                        </motion.div>
+                      )}
+                    </span>
+                    <motion.div
+                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </motion.a>
+
+                  {/* Mega Menu */}
+                  {link.hasMegaMenu && (
+                    <AnimatePresence>
+                      {servicesHovered && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[800px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+                          onMouseEnter={() => setServicesHovered(true)}
+                          onMouseLeave={() => setServicesHovered(false)}
+                        >
+                          {/* Header */}
+                          <div className="bg-gradient-to-r from-primary to-primary/90 p-6 text-white">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h3 className="text-xl font-bold mb-2">Our Tax Services</h3>
+                                <p className="text-primary-foreground/80 text-sm">
+                                  Professional tax preparation for individuals and businesses
+                                </p>
+                              </div>
+                              <div className="flex items-center gap-2 text-sm">
+                                <Star className="h-4 w-4 text-yellow-300" />
+                                <span>25+ Years Experience</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Services Grid */}
+                          <div className="p-6">
+                            <div className="grid grid-cols-2 gap-6">
+                              {servicesData.map((category, index) => (
+                                <motion.div
+                                  key={category.category}
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: index * 0.1 }}
+                                  className="group"
+                                >
+                                  <div className="flex items-center gap-3 mb-4">
+                                    <div className={`w-10 h-10 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                                      <category.icon className="h-5 w-5 text-white" />
+                                    </div>
+                                    <div>
+                                      <h4 className="font-semibold text-gray-900 text-sm">{category.category}</h4>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="space-y-3">
+                                    {category.services.map((service, serviceIndex) => (
+                                      <motion.div
+                                        key={service.name}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: (index * 0.1) + (serviceIndex * 0.05) }}
+                                        className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer group"
+                                        onClick={() => {
+                                          const contactSection = document.getElementById('contact');
+                                          if (contactSection) {
+                                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                                          }
+                                        }}
+                                      >
+                                        <div className="flex-1">
+                                          <h5 className="font-medium text-gray-900 text-sm group-hover:text-primary transition-colors">
+                                            {service.name}
+                                          </h5>
+                                          <p className="text-gray-500 text-xs">{service.description}</p>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                          <span className="text-xs font-medium text-primary">{service.price}</span>
+                                          <ArrowRight className="h-3 w-3 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200" />
+                                        </div>
+                                      </motion.div>
+                                    ))}
+                                  </div>
+                                </motion.div>
+                              ))}
+                            </div>
+
+                            {/* Bottom CTA */}
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.4 }}
+                              className="mt-6 pt-6 border-t border-gray-100"
+                            >
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2 text-sm text-gray-600">
+                                  <CheckCircle className="h-4 w-4 text-green-500" />
+                                  <span>Free consultation included</span>
+                                </div>
+                                <Button
+                                  size="sm"
+                                  className="bg-primary hover:bg-primary/90"
+                                  onClick={() => {
+                                    const processSection = document.getElementById('process-section');
+                                    if (processSection) {
+                                      processSection.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                  }}
+                                >
+                                  Get Started
+                                </Button>
+                              </div>
+                            </motion.div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
+                </div>
               ))}
             </div>
           </div>
