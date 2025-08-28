@@ -261,7 +261,7 @@ const Navigation = () => {
                       whileHover={{ scale: 1.02 }}
                     >
                       <Mail className="h-4 w-4 text-primary" />
-                      <span>info@vargastax.com</span>
+                      <span>info@vargastaxservices.com</span>
                     </motion.div>
                   </div>
                   <motion.div
