@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import DocumentCollectionForm from "./DocumentCollectionForm";
 import TaxPreparationChecklist from "./TaxPreparationChecklist";
+import TaxIntakeForm from "./TaxIntakeForm";
+import TaxOrganizerForm from "./TaxOrganizerForm";
 import { useState } from "react";
 
 const ProcessSection = () => {
@@ -21,13 +23,13 @@ const ProcessSection = () => {
     {
       id: 1,
       title: "Initial Consultation",
-      description: "Schedule a free consultation to discuss your tax situation and needs.",
-      details: ["Free 30-minute consultation", "Tax situation assessment", "Service recommendations", "Pricing discussion"],
-      duration: "30 minutes",
-      type: "Consultation",
+      description: "Complete our comprehensive tax intake form to assess your tax situation and needs.",
+      details: ["Personal information collection", "Income source identification", "Deduction assessment", "Service recommendations"],
+      duration: "15-20 minutes",
+      type: "Intake",
       color: "from-blue-500 to-blue-600",
       icon: Users,
-      form: "DocumentCollectionForm"
+      form: "TaxIntakeForm"
     },
     {
       id: 2,
@@ -42,25 +44,25 @@ const ProcessSection = () => {
     },
     {
       id: 3,
-      title: "Tax Preparation",
-      description: "Our certified professionals prepare your returns with meticulous attention to detail.",
-      details: ["Professional review and preparation", "Maximum deduction identification", "Error checking & validation", "Compliance verification"],
-      duration: "3-5 business days",
-      type: "Professional",
+      title: "Tax Organizer",
+      description: "Complete our detailed tax organizer to provide comprehensive financial information.",
+      details: ["Income source documentation", "Deduction and credit identification", "Business expense tracking", "Investment income reporting"],
+      duration: "30-45 minutes",
+      type: "Organization",
       color: "from-purple-500 to-purple-600",
       icon: Calculator,
-      form: "TaxPreparationChecklist"
+      form: "TaxOrganizerForm"
     },
     {
       id: 4,
-      title: "Review & Filing",
-      description: "We review your completed return with you and file it electronically for faster refunds.",
-      details: ["Return review meeting", "Electronic filing", "Refund tracking", "Audit protection"],
-      duration: "1-2 business days",
+      title: "Preparation & Filing",
+      description: "Our certified professionals prepare your returns and file them electronically for faster refunds.",
+      details: ["Professional review and preparation", "Maximum deduction identification", "Electronic filing", "Refund tracking"],
+      duration: "3-5 business days",
       type: "Final",
       color: "from-orange-500 to-orange-600",
       icon: CheckCircle,
-      form: null
+      form: "TaxPreparationChecklist"
     }
   ];
 
@@ -90,8 +92,12 @@ const ProcessSection = () => {
 
   const renderForm = (formType: string | null) => {
     switch (formType) {
+      case "TaxIntakeForm":
+        return <TaxIntakeForm />;
       case "DocumentCollectionForm":
         return <DocumentCollectionForm />;
+      case "TaxOrganizerForm":
+        return <TaxOrganizerForm />;
       case "TaxPreparationChecklist":
         return <TaxPreparationChecklist />;
       default:
