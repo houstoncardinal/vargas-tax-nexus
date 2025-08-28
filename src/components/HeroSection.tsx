@@ -1,4 +1,4 @@
-import { Calculator, Shield, TrendingUp, Users, ArrowRight, CheckCircle, Star } from "lucide-react";
+import { Calculator, Shield, TrendingUp, Users, ArrowRight, CheckCircle, Star, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -146,7 +146,10 @@ const HeroSection = () => {
                   variant="outline"
                   className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold"
                 >
-                  Learn More
+                  <span className="flex items-center gap-2">
+                    <Phone className="h-5 w-5" />
+                    (832) 287-9056
+                  </span>
                 </Button>
               </motion.div>
             </motion.div>

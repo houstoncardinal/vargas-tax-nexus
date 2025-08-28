@@ -21,7 +21,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: "(555) 123-4567",
+      details: "(832) 287-9056",
       subtitle: "Call us during business hours"
     },
     {

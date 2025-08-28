@@ -17,7 +17,7 @@ const FloatingActionButton = () => {
     {
       icon: Phone,
       label: "Call Us",
-      href: "tel:(555) 123-4567",
+      href: "tel:(832) 287-9056",
       color: "bg-green-500 hover:bg-green-600",
       delay: 0.1
     },

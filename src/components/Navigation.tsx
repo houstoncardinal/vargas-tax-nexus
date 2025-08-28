@@ -150,7 +150,7 @@ const Navigation = () => {
                 }}
               >
                 <Phone className="h-4 w-4 text-primary" />
-                <span className="font-medium">(555) 123-4567</span>
+                <span className="font-medium">(832) 287-9056</span>
               </motion.div>
               <motion.div 
                 className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"

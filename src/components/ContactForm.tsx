@@ -184,7 +184,8 @@ const ContactForm = () => {
           Schedule Your Free Consultation
         </h3>
         <p className="text-gray-600">
-          Fill out the form below and we'll contact you within 24 hours to schedule your free 30-minute consultation.
+          Fill out the form below and we'll contact you within 24 hours to schedule your free 30-minute consultation. 
+          Or call us directly at <span className="font-semibold text-primary">(832) 287-9056</span>.
         </p>
       </div>
 
@@ -293,7 +294,6 @@ const ContactForm = () => {
           <motion.div
             variants={inputVariants}
             whileFocus="focus"
-            whileBlur="blur"
           >
             <Input
               id="phone"
@@ -326,7 +326,6 @@ const ContactForm = () => {
           <motion.div
             variants={inputVariants}
             whileFocus="focus"
-            whileBlur="blur"
           >
             <Input
               id="company"
@@ -347,7 +346,6 @@ const ContactForm = () => {
           <motion.div
             variants={inputVariants}
             whileFocus="focus"
-            whileBlur="blur"
           >
             <select
               id="serviceType"
