@@ -15,13 +15,20 @@
 
 [[redirects]]
   from = "http://www.vargastaxservices.com/*"
-  to = "https://www.vargastaxservices.com/:splat"
+  to = "https://vargastaxservices.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.vargastaxservices.com/*"
   to = "https://vargastaxservices.com/:splat"
+  status = 301
+  force = true
+
+# Catch-all HTTP to HTTPS redirect
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
   status = 301
   force = true
 
