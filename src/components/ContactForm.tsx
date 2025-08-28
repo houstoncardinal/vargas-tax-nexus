@@ -103,13 +103,14 @@ const ContactForm = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
+    // The form will be handled by Netlify automatically
+    // We'll just show success message after a brief delay
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     setIsSubmitting(false);
     setIsSubmitted(true);
 
-    // Reset form after 3 seconds
+    // Reset form after 5 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -123,7 +124,7 @@ const ContactForm = () => {
         preferredContact: "email",
         consultationDate: ""
       });
-    }, 3000);
+    }, 5000);
   };
 
   const handleInputChange = (field: keyof FormData, value: string) => {
@@ -178,7 +179,17 @@ const ContactForm = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      data-netlify="true"
+      name="contact"
+      method="POST"
+      netlify-honeypot="bot-field"
     >
+      {/* Netlify form fields */}
+      <input type="hidden" name="form-name" value="contact" />
+      <div hidden>
+        <input name="bot-field" />
+      </div>
+
       <div className="mb-8">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
           Schedule Your Free Consultation
@@ -195,21 +206,22 @@ const ContactForm = () => {
           <Label htmlFor="firstName" className="text-sm font-medium text-gray-700 mb-2 block">
             First Name *
           </Label>
-                     <motion.div
-             variants={inputVariants}
-             whileFocus="focus"
-           >
-             <Input
-               id="firstName"
-               type="text"
-               value={formData.firstName}
-               onChange={(e) => handleInputChange("firstName", e.target.value)}
-               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 ${
-                 errors.firstName ? "border-red-300" : "border-gray-300"
-               }`}
-               placeholder="Enter your first name"
-             />
-           </motion.div>
+          <motion.div
+            variants={inputVariants}
+            whileFocus="focus"
+          >
+            <Input
+              id="firstName"
+              name="firstName"
+              type="text"
+              value={formData.firstName}
+              onChange={(e) => handleInputChange("firstName", e.target.value)}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 ${
+                errors.firstName ? "border-red-300" : "border-gray-300"
+              }`}
+              placeholder="Enter your first name"
+            />
+          </motion.div>
           {errors.firstName && (
             <motion.p
               initial={{ opacity: 0, y: -10 }}
@@ -227,21 +239,22 @@ const ContactForm = () => {
           <Label htmlFor="lastName" className="text-sm font-medium text-gray-700 mb-2 block">
             Last Name *
           </Label>
-                     <motion.div
-             variants={inputVariants}
-             whileFocus="focus"
-           >
-             <Input
-               id="lastName"
-               type="text"
-               value={formData.lastName}
-               onChange={(e) => handleInputChange("lastName", e.target.value)}
-               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 ${
-                 errors.lastName ? "border-red-300" : "border-gray-300"
-               }`}
-               placeholder="Enter your last name"
-             />
-           </motion.div>
+          <motion.div
+            variants={inputVariants}
+            whileFocus="focus"
+          >
+            <Input
+              id="lastName"
+              name="lastName"
+              type="text"
+              value={formData.lastName}
+              onChange={(e) => handleInputChange("lastName", e.target.value)}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 ${
+                errors.lastName ? "border-red-300" : "border-gray-300"
+              }`}
+              placeholder="Enter your last name"
+            />
+          </motion.div>
           {errors.lastName && (
             <motion.p
               initial={{ opacity: 0, y: -10 }}
@@ -259,21 +272,22 @@ const ContactForm = () => {
           <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">
             Email Address *
           </Label>
-                     <motion.div
-             variants={inputVariants}
-             whileFocus="focus"
-           >
-             <Input
-               id="email"
-               type="email"
-               value={formData.email}
-               onChange={(e) => handleInputChange("email", e.target.value)}
-               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 ${
-                 errors.email ? "border-red-300" : "border-gray-300"
-               }`}
-               placeholder="Enter your email address"
-             />
-           </motion.div>
+          <motion.div
+            variants={inputVariants}
+            whileFocus="focus"
+          >
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 ${
+                errors.email ? "border-red-300" : "border-gray-300"
+              }`}
+              placeholder="Enter your email address"
+            />
+          </motion.div>
           {errors.email && (
             <motion.p
               initial={{ opacity: 0, y: -10 }}
@@ -297,6 +311,7 @@ const ContactForm = () => {
           >
             <Input
               id="phone"
+              name="phone"
               type="tel"
               value={formData.phone}
               onChange={(e) => handleInputChange("phone", e.target.value)}
@@ -329,6 +344,7 @@ const ContactForm = () => {
           >
             <Input
               id="company"
+              name="company"
               type="text"
               value={formData.company}
               onChange={(e) => handleInputChange("company", e.target.value)}
@@ -349,6 +365,7 @@ const ContactForm = () => {
           >
             <select
               id="serviceType"
+              name="serviceType"
               value={formData.serviceType}
               onChange={(e) => handleInputChange("serviceType", e.target.value)}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 ${
@@ -398,7 +415,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Preferred Consultation Date */}
+      {/* Consultation Date */}
       <div className="mb-6">
         <Label htmlFor="consultationDate" className="text-sm font-medium text-gray-700 mb-2 block">
           Preferred Consultation Date (Optional)
@@ -406,14 +423,15 @@ const ContactForm = () => {
         <motion.div
           variants={inputVariants}
           whileFocus="focus"
-          whileBlur="blur"
         >
           <Input
             id="consultationDate"
+            name="consultationDate"
             type="date"
             value={formData.consultationDate}
             onChange={(e) => handleInputChange("consultationDate", e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
+            min={new Date().toISOString().split('T')[0]}
           />
         </motion.div>
       </div>
@@ -421,21 +439,22 @@ const ContactForm = () => {
       {/* Message */}
       <div className="mb-8">
         <Label htmlFor="message" className="text-sm font-medium text-gray-700 mb-2 block">
-          Additional Information *
+          Tell us about your tax situation *
         </Label>
         <motion.div
           variants={inputVariants}
           whileFocus="focus"
-          whileBlur="blur"
         >
           <Textarea
             id="message"
+            name="message"
             value={formData.message}
             onChange={(e) => handleInputChange("message", e.target.value)}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 min-h-[120px] ${
+            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 resize-none ${
               errors.message ? "border-red-300" : "border-gray-300"
             }`}
-            placeholder="Please provide any additional information about your tax situation, questions, or specific concerns you'd like to discuss during the consultation."
+            placeholder="Please describe your tax situation, any specific concerns, or questions you have..."
+            rows={4}
           />
         </motion.div>
         {errors.message && (
@@ -461,20 +480,21 @@ const ContactForm = () => {
           className="w-full bg-primary hover:bg-primary/90 text-white py-4 text-lg font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
-            />
+            <span className="flex items-center justify-center">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2 animate-spin" />
+              Submitting...
+            </span>
           ) : (
-            <Send className="h-5 w-5 mr-2" />
+            <span className="flex items-center gap-2">
+              <Send className="h-5 w-5" />
+              Send Consultation Request
+            </span>
           )}
-          {isSubmitting ? "Submitting..." : "Schedule Free Consultation"}
         </Button>
       </motion.div>
 
-      <p className="text-xs text-gray-500 mt-4 text-center">
-        By submitting this form, you agree to our privacy policy and consent to being contacted about our services.
+      <p className="text-xs text-gray-500 text-center mt-4">
+        * Required fields. We'll respond within 24 hours during business days.
       </p>
     </motion.form>
   );

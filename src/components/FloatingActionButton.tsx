@@ -31,7 +31,7 @@ const FloatingActionButton = () => {
     {
       icon: Mail,
       label: "Email Us",
-      href: "mailto:info@vargastax.com",
+      href: "mailto:info@vargastaxservices.com",
       color: "bg-purple-500 hover:bg-purple-600",
       delay: 0.3
     },

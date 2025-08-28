@@ -160,7 +160,7 @@ const Navigation = () => {
                 }}
               >
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="font-medium">info@vargastax.com</span>
+                <span className="font-medium">info@vargastaxservices.com</span>
               </motion.div>
             </motion.div>
             <motion.div

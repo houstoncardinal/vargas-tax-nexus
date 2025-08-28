@@ -27,7 +27,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      details: "info@vargastax.com",
+      details: "info@vargastaxservices.com",
       subtitle: "We respond within 24 hours"
     },
     {
