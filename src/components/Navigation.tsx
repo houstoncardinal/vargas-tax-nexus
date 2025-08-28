@@ -250,15 +250,17 @@ const Navigation = () => {
                 >
                   <div className="text-sm text-gray-600 space-y-2">
                     <motion.div 
-                      className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                       whileHover={{ scale: 1.02 }}
+                      onClick={() => window.location.href = 'tel:(832) 287-9056'}
                     >
                       <Phone className="h-4 w-4 text-primary" />
-                      <span>(555) 123-4567</span>
+                      <span>(832) 287-9056</span>
                     </motion.div>
                     <motion.div 
-                      className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                       whileHover={{ scale: 1.02 }}
+                      onClick={() => window.location.href = 'mailto:info@vargastaxservices.com'}
                     >
                       <Mail className="h-4 w-4 text-primary" />
                       <span>info@vargastaxservices.com</span>
@@ -272,6 +274,12 @@ const Navigation = () => {
                       variant="default" 
                       size="sm" 
                       className="w-full bg-primary hover:bg-primary/90"
+                      onClick={() => {
+                        const processSection = document.getElementById('process-section');
+                        if (processSection) {
+                          processSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
                     >
                       Get Started
                     </Button>

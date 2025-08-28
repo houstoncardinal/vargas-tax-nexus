@@ -129,6 +129,12 @@ const HeroSection = () => {
                 <Button 
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold shadow-sm hover:shadow-md transition-all duration-200"
+                  onClick={() => {
+                    const processSection = document.getElementById('process-section');
+                    if (processSection) {
+                      processSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 >
                   <span className="flex items-center gap-2">
                     Schedule Consultation
@@ -145,6 +151,7 @@ const HeroSection = () => {
                   size="lg"
                   variant="outline"
                   className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-semibold"
+                  onClick={() => window.location.href = 'tel:(832) 287-9056'}
                 >
                   <span className="flex items-center gap-2">
                     <Phone className="h-5 w-5" />

@@ -248,6 +248,12 @@ const ServicesSection = () => {
                   <Button 
                     variant="outline" 
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 relative overflow-hidden"
+                    onClick={() => {
+                      const contactSection = document.getElementById('contact');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                   >
                     <span className="relative z-10 flex items-center gap-2">
                       Learn More
@@ -315,6 +321,12 @@ const ServicesSection = () => {
                 <Button 
                   size="lg" 
                   className="elite-button px-8 py-4 text-lg"
+                  onClick={() => {
+                    const processSection = document.getElementById('process-section');
+                    if (processSection) {
+                      processSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 >
                   <span className="flex items-center gap-2">
                     <Sparkles className="h-5 w-5" />
@@ -331,10 +343,11 @@ const ServicesSection = () => {
                   size="lg" 
                   variant="outline"
                   className="elite-glass px-8 py-4 text-lg border-white/30 text-foreground hover:bg-white/10"
+                  onClick={() => window.location.href = 'tel:(832) 287-9056'}
                 >
                   <span className="flex items-center gap-2">
                     <Star className="h-5 w-5" />
-                    Call (555) 123-4567
+                    Call (832) 287-9056
                   </span>
                 </Button>
               </motion.div>

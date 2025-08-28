@@ -21,12 +21,12 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    "About Us",
-    "Services",
-    "Contact",
-    "Tax Calendar",
-    "Tax Resources",
-    "Client Portal"
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Contact", href: "#contact" },
+    { name: "Process", href: "#process-section" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Testimonials", href: "#testimonials" }
   ];
 
   return (
@@ -81,10 +81,10 @@ const Footer = () => {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a 
-                    href={`#${link.toLowerCase().replace(/\s+/g, '')}`} 
+                    href={link.href} 
                     className="text-primary-foreground/80 hover:text-secondary transition-colors duration-300 text-sm"
                   >
-                    {link}
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -98,7 +98,12 @@ const Footer = () => {
               <div className="flex items-start">
                 <Phone className="h-5 w-5 text-secondary mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-primary-foreground font-medium">(832) 287-9056</p>
+                  <a 
+                    href="tel:(832) 287-9056" 
+                    className="text-primary-foreground font-medium hover:text-secondary transition-colors duration-300 cursor-pointer"
+                  >
+                    (832) 287-9056
+                  </a>
                   <p className="text-primary-foreground/60 text-sm">Mon-Fri: 9AM-6PM</p>
                   <p className="text-primary-foreground/60 text-sm">Sat: 9AM-2PM (Tax Season)</p>
                 </div>
@@ -107,7 +112,12 @@ const Footer = () => {
               <div className="flex items-start">
                 <Mail className="h-5 w-5 text-secondary mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-primary-foreground font-medium">info@vargastaxservices.com</p>
+                  <a 
+                    href="mailto:info@vargastaxservices.com" 
+                    className="text-primary-foreground font-medium hover:text-secondary transition-colors duration-300 cursor-pointer"
+                  >
+                    info@vargastaxservices.com
+                  </a>
                   <p className="text-primary-foreground/60 text-sm">24hr response time</p>
                 </div>
               </div>
