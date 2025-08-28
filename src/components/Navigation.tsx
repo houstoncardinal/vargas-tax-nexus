@@ -363,7 +363,7 @@ const Navigation = () => {
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+              className="p-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
             >
               <AnimatePresence mode="wait">
                 {isOpen ? (
@@ -374,7 +374,7 @@ const Navigation = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="h-6 w-6" />
+                    <X className="h-5 w-5" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -384,7 +384,7 @@ const Navigation = () => {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="h-6 w-6" />
+                    <Menu className="h-5 w-5" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -402,12 +402,12 @@ const Navigation = () => {
               animate="visible"
               exit="exit"
             >
-              <div className="bg-white border-t border-gray-200 rounded-b-lg p-6 space-y-4 shadow-lg">
+              <div className="bg-white border-t border-gray-200 rounded-b-lg p-4 space-y-3 shadow-lg">
                 {navLinks.map((link, i) => (
                   <motion.a
                     key={link.label}
                     href={link.href}
-                    className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-300 font-medium rounded-lg"
+                    className="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-300 font-medium rounded-lg"
                     onClick={() => setIsOpen(false)}
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
@@ -419,14 +419,14 @@ const Navigation = () => {
                   </motion.a>
                 ))}
                 <motion.div 
-                  className="px-4 py-4 border-t border-gray-200 mt-4 space-y-3"
+                  className="px-3 py-3 border-t border-gray-200 mt-3 space-y-2"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <div className="text-sm text-gray-600 space-y-2">
+                  <div className="text-sm text-gray-600 space-y-1">
                     <motion.div 
-                      className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                      className="flex items-center space-x-3 px-2 py-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                       whileHover={{ scale: 1.02 }}
                       onClick={() => window.location.href = 'tel:(832) 287-9056'}
                     >
@@ -434,7 +434,7 @@ const Navigation = () => {
                       <span>(832) 287-9056</span>
                     </motion.div>
                     <motion.div 
-                      className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                      className="flex items-center space-x-3 px-2 py-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                       whileHover={{ scale: 1.02 }}
                       onClick={() => window.location.href = 'mailto:info@vargastaxservices.com'}
                     >
