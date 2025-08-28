@@ -152,7 +152,8 @@ const TaxResolutionServices = () => {
               transition={{ delay: 0.4 }}
             >
               Expert assistance with IRS issues, audits, and tax debt resolution. 
-              Our experienced professionals help you resolve tax problems and get back on track.
+              Our experienced professionals help you resolve tax problems and get back on track. 
+              <span className="font-semibold text-primary">We serve clients nationwide with virtual consultations - super easy!</span>
             </motion.p>
 
             <motion.div 
@@ -207,7 +208,7 @@ const TaxResolutionServices = () => {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our experienced tax resolution specialists help you navigate complex IRS issues 
-              and find the best solution for your unique situation.
+              and find the best solution for your unique situation. <span className="font-semibold text-primary">Available nationwide with convenient virtual consultations!</span>
             </p>
           </motion.div>
 
@@ -231,6 +232,72 @@ const TaxResolutionServices = () => {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Virtual Consultations Section */}
+      <section className="py-20 bg-red-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                Virtual Consultations - Super Easy!
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                We serve clients nationwide with convenient virtual consultations. 
+                No matter where you are in the United States, we can help you resolve your tax issues.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Video consultations from anywhere in the US</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Secure document sharing for IRS communications</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Same professional representation, no travel required</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Flexible scheduling for urgent tax issues</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-white p-8 rounded-2xl shadow-lg text-center"
+            >
+              <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Shield className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Nationwide Tax Resolution</h3>
+              <p className="text-gray-600 mb-6">
+                From IRS issues in Washington to tax problems in Texas, we serve clients across all 50 states 
+                with the same professional tax resolution expertise and IRS representation.
+              </p>
+              <Button 
+                size="lg"
+                className="bg-red-500 hover:bg-red-600"
+                onClick={() => window.location.href = 'tel:(832) 287-9056'}
+              >
+                <span className="flex items-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  Schedule Resolution Consultation
+                </span>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -445,7 +512,7 @@ const TaxResolutionServices = () => {
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Contact us today for a free consultation and let our experts help you 
-              resolve your IRS problems and get back on track.
+              resolve your IRS problems and get back on track. <span className="font-semibold">Virtual consultations available nationwide - super easy and convenient!</span>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

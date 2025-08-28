@@ -108,7 +108,8 @@ const IndividualTaxReturns = () => {
               transition={{ delay: 0.4 }}
             >
               Professional preparation of personal income tax returns with maximum deductions, 
-              credits, and refunds. Our certified tax professionals ensure accuracy and compliance.
+              credits, and refunds. Our certified tax professionals ensure accuracy and compliance. 
+              <span className="font-semibold text-primary">We serve individuals nationwide with virtual consultations - super easy!</span>
             </motion.p>
 
             <motion.div 
@@ -163,7 +164,7 @@ const IndividualTaxReturns = () => {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our certified tax professionals combine expertise with personalized service 
-              to ensure you receive the maximum refund possible.
+              to ensure you receive the maximum refund possible. <span className="font-semibold text-primary">Available nationwide with convenient virtual consultations!</span>
             </p>
           </motion.div>
 
@@ -191,6 +192,72 @@ const IndividualTaxReturns = () => {
         </div>
       </section>
 
+      {/* Virtual Consultations Section */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                Virtual Consultations - Super Easy!
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                We serve individuals nationwide with convenient virtual consultations. 
+                No matter where you are in the United States, we can help you with your tax preparation.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Video consultations from anywhere in the US</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Secure document sharing and uploads</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Same professional service, no travel required</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Flexible scheduling to fit your schedule</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-white p-8 rounded-2xl shadow-lg text-center"
+            >
+              <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Users className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Nationwide Service</h3>
+              <p className="text-gray-600 mb-6">
+                From California to New York, Texas to Alaska, we serve clients across all 50 states with the same 
+                professional expertise and personalized service.
+              </p>
+              <Button 
+                size="lg"
+                className="bg-blue-500 hover:bg-blue-600"
+                onClick={() => window.location.href = 'tel:(832) 287-9056'}
+              >
+                <span className="flex items-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  Schedule Virtual Consultation
+                </span>
+              </Button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* What We Include Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,7 +272,7 @@ const IndividualTaxReturns = () => {
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Our comprehensive individual tax return service includes everything you need 
-                for a complete, accurate, and optimized tax filing.
+                for a complete, accurate, and optimized tax filing. <span className="font-semibold text-primary">Virtual consultations make it easy to work with us from anywhere in the US!</span>
               </p>
               
               <div className="space-y-4">
@@ -303,7 +370,8 @@ const IndividualTaxReturns = () => {
               Ready to Maximize Your Tax Refund?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Contact us today for a free consultation and let our experts handle your tax preparation.
+              Contact us today for a free consultation and let our experts handle your tax preparation. 
+              <span className="font-semibold">Virtual consultations available nationwide - super easy and convenient!</span>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
