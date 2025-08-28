@@ -201,7 +201,7 @@ const TaxOrganizerForm = () => {
     }));
   };
 
-  const updateDependent = (index: number, field: keyof Dependent, value: any) => {
+  const updateDependent = (index: number, field: keyof Dependent, value: string | number) => {
     setFormData(prev => ({
       ...prev,
       dependents: prev.dependents.map((dep, i) => 
@@ -232,7 +232,7 @@ const TaxOrganizerForm = () => {
     }));
   };
 
-  const updateW2Income = (index: number, field: keyof W2Income, value: any) => {
+  const updateW2Income = (index: number, field: keyof W2Income, value: string | number) => {
     setFormData(prev => ({
       ...prev,
       w2Income: prev.w2Income.map((w2, i) => 
@@ -282,7 +282,7 @@ const TaxOrganizerForm = () => {
     }
   };
 
-  const updateField = (field: keyof TaxOrganizerData, value: any) => {
+  const updateField = (field: keyof TaxOrganizerData, value: string | number | boolean | object) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field as string]) {
       setErrors(prev => ({ ...prev, [field]: "" }));

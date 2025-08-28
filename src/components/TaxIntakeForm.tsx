@@ -185,7 +185,7 @@ const TaxIntakeForm = () => {
     }
   };
 
-  const updateField = (field: keyof TaxIntakeData, value: any) => {
+  const updateField = (field: keyof TaxIntakeData, value: string | number | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));

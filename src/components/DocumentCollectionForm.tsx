@@ -24,7 +24,7 @@ interface DocumentCategory {
   id: string;
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   documents: DocumentItem[];
 }
 

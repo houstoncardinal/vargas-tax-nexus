@@ -69,7 +69,7 @@ export const useScrollAnimationWithDelay = (
 };
 
 export const useStaggeredAnimation = (
-  items: any[],
+  items: unknown[],
   staggerDelay: number = 100,
   options: UseScrollAnimationOptions = {}
 ) => {
