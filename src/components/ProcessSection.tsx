@@ -129,73 +129,127 @@ const ProcessSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-12 mb-16"
+          className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16"
         >
           {processSteps.map((step, index) => (
             <motion.div
               key={step.id}
               variants={itemVariants}
-              className={`flex flex-col lg:flex-row gap-8 items-start ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
+              className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
             >
-              {/* Content */}
-              <div className="flex-1">
-                <div className="flex items-center mb-4">
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center mr-4`}>
-                    <step.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+              {/* Mobile: Compact layout with icon at top */}
+              <div className="lg:hidden">
+                <div className={`w-full h-32 bg-gradient-to-br ${step.color} flex items-center justify-center relative`}>
+                  <step.icon className="h-12 w-12 text-white" />
+                  <div className="absolute top-4 left-4">
+                    <span className="text-sm font-medium text-white bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
                       Step {step.id}
                     </span>
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  {step.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {step.description}
-                </p>
-
-                <div className="space-y-3 mb-6">
-                  {step.details.map((detail, detailIndex) => (
-                    <div key={detailIndex} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{detail}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
-                    <div className="flex items-center">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      {step.duration}
-                    </div>
-                    <div className="flex items-center">
-                      <Shield className="h-4 w-4 mr-1" />
-                      {step.type}
-                    </div>
-                  </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {step.title}
+                  </h3>
                   
-                  {step.form && (
-                    <button
-                      onClick={() => setSelectedForm(selectedForm === step.form ? null : step.form)}
-                      className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg transition-colors duration-200"
-                    >
-                      {selectedForm === step.form ? 'Hide Form' : 'Start Process'}
-                    </button>
-                  )}
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  <div className="space-y-2 mb-4">
+                    {step.details.map((detail, detailIndex) => (
+                      <div key={detailIndex} className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 text-sm">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3 text-xs text-gray-500">
+                      <div className="flex items-center">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        {step.duration}
+                      </div>
+                      <div className="flex items-center">
+                        <Shield className="h-3 w-3 mr-1" />
+                        {step.type}
+                      </div>
+                    </div>
+                    
+                    {step.form && (
+                      <button
+                        onClick={() => setSelectedForm(selectedForm === step.form ? null : step.form)}
+                        className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm"
+                      >
+                        {selectedForm === step.form ? 'Hide Form' : 'Start Process'}
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              {/* Visual Element */}
-              <div className="lg:w-80 lg:flex-shrink-0">
-                <div className={`w-full h-64 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
-                  <step.icon className="h-16 w-16 text-white" />
+              {/* Desktop: Original layout */}
+              <div className="hidden lg:flex flex-col lg:flex-row gap-8 items-start p-8">
+                {/* Content */}
+                <div className="flex-1">
+                  <div className="flex items-center mb-4">
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center mr-4`}>
+                      <step.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        Step {step.id}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {step.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    {step.details.map((detail, detailIndex) => (
+                      <div key={detailIndex} className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4 text-sm text-gray-500">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        {step.duration}
+                      </div>
+                      <div className="flex items-center">
+                        <Shield className="h-4 w-4 mr-1" />
+                        {step.type}
+                      </div>
+                    </div>
+                    
+                    {step.form && (
+                      <button
+                        onClick={() => setSelectedForm(selectedForm === step.form ? null : step.form)}
+                        className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg transition-colors duration-200"
+                      >
+                        {selectedForm === step.form ? 'Hide Form' : 'Start Process'}
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Visual Element */}
+                <div className="lg:w-80 lg:flex-shrink-0">
+                  <div className={`w-full h-64 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
+                    <step.icon className="h-16 w-16 text-white" />
+                  </div>
                 </div>
               </div>
             </motion.div>
