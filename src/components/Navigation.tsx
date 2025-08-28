@@ -30,7 +30,7 @@ const Navigation = () => {
       icon: Building2,
       color: "from-purple-500 to-pink-500",
       services: [
-        { name: "Corporate Returns", description: "C-Corp & S-Corp filing" },
+                            { name: "Business Tax Services", description: "C-Corp & S-Corp filing" },
         { name: "Partnership Filings", description: "LLC & partnership returns" },
         { name: "Quarterly Estimates", description: "Business tax planning" }
       ]
@@ -40,7 +40,7 @@ const Navigation = () => {
       icon: Calculator,
       color: "from-green-500 to-emerald-500",
       services: [
-        { name: "Tax Planning", description: "Year-round strategy" },
+        { name: "Tax Planning & Strategy", description: "Year-round strategy" },
         { name: "Investment Taxes", description: "Capital gains & losses" },
         { name: "Retirement Planning", description: "IRA & 401(k) optimization" }
       ]
@@ -50,7 +50,7 @@ const Navigation = () => {
       icon: Shield,
       color: "from-red-500 to-orange-500",
       services: [
-        { name: "IRS Representation", description: "Audit defense & support" },
+        { name: "Tax Resolution Services", description: "Audit defense & support" },
         { name: "Payment Plans", description: "Installment agreements" },
         { name: "Penalty Abatement", description: "Reduce IRS penalties" }
       ]
@@ -240,9 +240,22 @@ const Navigation = () => {
                                          transition={{ delay: (index * 0.1) + (serviceIndex * 0.05) }}
                                          className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer group"
                                          onClick={() => {
-                                           const contactSection = document.getElementById('contact');
-                                           if (contactSection) {
-                                             contactSection.scrollIntoView({ behavior: 'smooth' });
+                                           // Navigate to specific service page based on service name
+                                           const serviceRoutes = {
+                                             'Personal Tax Returns': '/services/individual-tax-returns',
+                                             'Business Tax Services': '/services/business-tax-services',
+                                             'Tax Planning & Strategy': '/services/tax-planning-strategy',
+                                             'Tax Resolution Services': '/services/tax-resolution-services'
+                                           };
+                                           
+                                           const route = serviceRoutes[service.name as keyof typeof serviceRoutes];
+                                           if (route) {
+                                             window.location.href = route;
+                                           } else {
+                                             const contactSection = document.getElementById('contact');
+                                             if (contactSection) {
+                                               contactSection.scrollIntoView({ behavior: 'smooth' });
+                                             }
                                            }
                                          }}
                                        >
