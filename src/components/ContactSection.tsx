@@ -5,13 +5,18 @@ import {
   Clock, 
   Calendar,
   Send,
-  MessageSquare
+  MessageSquare,
+  Shield,
+  Users
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import ContactForm from "./ContactForm";
 
 const ContactSection = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   const contactInfo = [
     {
       icon: Phone,
@@ -39,171 +44,203 @@ const ContactSection = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 20
+      }
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section 
+      id="contact" 
+      ref={elementRef}
+      className="py-24 bg-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full shadow-sm"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="w-2 h-2 bg-primary rounded-full" />
+            <span className="text-sm font-medium text-gray-600">Contact Us</span>
+          </motion.div>
+
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
             Get in Touch
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+          >
             Ready to maximize your tax savings? Contact us today for a free consultation. 
             We're here to help you navigate your tax needs with confidence.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-16 items-start"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
           {/* Left Column - Contact Information */}
-          <div className="space-y-8">
+          <motion.div 
+            className="space-y-8"
+            variants={itemVariants}
+          >
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+              <motion.h3 
+                className="text-2xl font-bold text-gray-900 mb-6 flex items-center"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: 0.8 }}
+              >
                 <MessageSquare className="h-6 w-6 text-primary mr-2" />
                 Contact Information
-              </h3>
+              </motion.h3>
               
               <div className="grid sm:grid-cols-2 gap-6">
                 {contactInfo.map((info, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="bg-card rounded-xl p-6 shadow-card border border-border hover:shadow-elegant transition-all duration-300 group"
+                    className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ delay: 0.9 + index * 0.1 }}
+                    whileHover={{ y: -2 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-success rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
-                    <h4 className="font-semibold text-foreground mb-1">
+                    <h4 className="font-semibold text-gray-900 mb-1">
                       {info.title}
                     </h4>
                     <p className="text-primary font-medium mb-1">
                       {info.details}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-gray-600">
                       {info.subtitle}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
             {/* Schedule Appointment CTA */}
-            <div className="bg-gradient-card rounded-xl p-8 shadow-elegant border border-border">
+            <motion.div 
+              className="bg-gray-50 rounded-xl p-8 border border-gray-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 1.3 }}
+              whileHover={{ y: -2 }}
+            >
               <div className="flex items-center mb-4">
-                <Calendar className="h-8 w-8 text-primary mr-3" />
-                <h3 className="text-2xl font-bold text-foreground">
+                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mr-4">
+                  <Calendar className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
                   Schedule Your Free Consultation
                 </h3>
               </div>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-gray-600 mb-6">
                 Book a complimentary 30-minute consultation to discuss your tax situation. 
                 No obligation, just expert advice tailored to your needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="flex-1">
-                  Book Appointment
+                <Button size="lg" className="bg-primary hover:bg-primary/90 flex-1">
+                  <span className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4" />
+                    Book Appointment
+                  </span>
                 </Button>
-                <Button size="lg" variant="outline" className="flex-1">
-                  Call Now
+                <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 flex-1">
+                  <span className="flex items-center gap-2">
+                    <Phone className="h-4 w-4" />
+                    Call Now
+                  </span>
                 </Button>
               </div>
-            </div>
+            </motion.div>
 
             {/* Business Hours */}
-            <div className="bg-card rounded-xl p-6 shadow-card border border-border">
-              <h4 className="font-semibold text-foreground mb-4">Business Hours</h4>
+            <motion.div 
+              className="bg-white rounded-xl p-6 shadow-sm border border-gray-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 1.4 }}
+              whileHover={{ y: -2 }}
+            >
+              <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
+                <Clock className="h-5 w-5 text-primary mr-2" />
+                Business Hours
+              </h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Monday - Friday</span>
-                  <span className="text-foreground font-medium">9:00 AM - 6:00 PM</span>
+                  <span className="text-gray-600">Monday - Friday</span>
+                  <span className="text-gray-900 font-medium">9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Saturday (Tax Season)</span>
-                  <span className="text-foreground font-medium">9:00 AM - 2:00 PM</span>
+                  <span className="text-gray-600">Saturday (Tax Season)</span>
+                  <span className="text-gray-900 font-medium">9:00 AM - 2:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Sunday</span>
-                  <span className="text-foreground font-medium">Closed</span>
+                  <span className="text-gray-600">Sunday</span>
+                  <span className="text-gray-900 font-medium">Closed</span>
                 </div>
-                <div className="pt-2 mt-4 border-t border-border">
-                  <p className="text-xs text-muted-foreground">
+                <div className="pt-2 mt-4 border-t border-gray-200">
+                  <p className="text-xs text-gray-500">
                     * Extended hours available during tax season (January - April)
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column - Contact Form */}
-          <div className="bg-card rounded-xl p-8 shadow-elegant border border-border">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
-              Send Us a Message
-            </h3>
-            
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    First Name *
-                  </label>
-                  <Input placeholder="John" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Last Name *
-                  </label>
-                  <Input placeholder="Doe" />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Email Address *
-                </label>
-                <Input type="email" placeholder="john.doe@email.com" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Phone Number
-                </label>
-                <Input type="tel" placeholder="(555) 123-4567" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Service Needed
-                </label>
-                <select className="w-full px-3 py-2 border border-input rounded-lg bg-background text-foreground focus:ring-2 focus:ring-ring focus:border-ring">
-                  <option value="">Select a service</option>
-                  <option value="individual">Individual Tax Return</option>
-                  <option value="business">Business Tax Services</option>
-                  <option value="planning">Tax Planning</option>
-                  <option value="resolution">Tax Resolution</option>
-                  <option value="bookkeeping">Bookkeeping</option>
-                  <option value="consultation">General Consultation</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Message *
-                </label>
-                <Textarea 
-                  placeholder="Tell us about your tax situation and how we can help you..."
-                  rows={4}
-                />
-              </div>
-
-              <Button size="lg" className="w-full">
-                <Send className="h-5 w-5 mr-2" />
-                Send Message
-              </Button>
-
-              <p className="text-xs text-muted-foreground text-center">
-                * Required fields. We'll respond within 24 hours during business days.
-              </p>
-            </form>
-          </div>
-        </div>
+          <motion.div 
+            variants={itemVariants}
+            initial={{ opacity: 0, x: 20 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ delay: 1 }}
+          >
+            <ContactForm />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
