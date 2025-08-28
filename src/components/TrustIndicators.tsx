@@ -9,7 +9,7 @@ const TrustIndicators = () => {
       description: "Officially authorized by the IRS for electronic filing"
     },
     {
-      title: "CPA Licensed",
+      title: "Licensed Professional",
       subtitle: "Certified Professional",
       icon: Award,
       description: "Licensed Certified Public Accountant with 15+ years experience"

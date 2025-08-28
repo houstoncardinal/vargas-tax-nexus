@@ -35,7 +35,7 @@ const FAQSection = () => {
     },
     {
       question: "What makes Vargas Tax different from other preparers?",
-      answer: "Our combination of CPA expertise, personalized service, and year-round support sets us apart. Unlike seasonal preparers, we're available all year for questions and planning. Our certified professionals average 15+ years of experience, and we guarantee our work with audit protection included."
+      answer: "Our combination of professional expertise, personalized service, and year-round support sets us apart. Unlike seasonal preparers, we're available all year for questions and planning. Our certified professionals average 15+ years of experience, and we guarantee our work with audit protection included."
     },
     {
       question: "How quickly can you prepare my tax return?",

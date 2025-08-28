@@ -10,7 +10,7 @@ import {
 
 const AboutSection = () => {
   const certifications = [
-    "Certified Public Accountant (CPA)",
+    "Tax Professional",
     "Enrolled Agent (EA)",
     "QuickBooks ProAdvisor",
     "Tax Resolution Specialist"
