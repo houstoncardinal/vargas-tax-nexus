@@ -8,6 +8,7 @@ import {
   X,
   Plus
 } from "lucide-react";
+import React from "react";
 
 const FloatingActionButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,10 +45,10 @@ const FloatingActionButton = () => {
   ];
 
   const buttonVariants = {
-    hidden: { scale: 0, rotate: -180 },
+    hidden: { scale: 0, opacity: 0 },
     visible: { 
       scale: 1, 
-      rotate: 0,
+      opacity: 1,
       transition: {
         type: "spring" as const,
         stiffness: 200,
@@ -56,7 +57,6 @@ const FloatingActionButton = () => {
     },
     hover: { 
       scale: 1.05,
-      rotate: 45,
       transition: {
         type: "spring" as const,
         stiffness: 300,
@@ -75,8 +75,8 @@ const FloatingActionButton = () => {
     visible: (i: number) => ({
       scale: 1,
       opacity: 1,
-      x: Math.cos(i * 90 * Math.PI / 180) * 80,
-      y: Math.sin(i * 90 * Math.PI / 180) * 80,
+      x: Math.cos(i * 90 * Math.PI / 180) * 70,
+      y: Math.sin(i * 90 * Math.PI / 180) * 70,
       transition: {
         type: "spring" as const,
         stiffness: 200,
@@ -95,8 +95,24 @@ const FloatingActionButton = () => {
     }
   };
 
+  // Only show on larger screens and after user interaction
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  // Show after 5 seconds of page load
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasInteracted(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!hasInteracted) {
+    return null;
+  }
+
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-40 hidden lg:block">
       {/* Action Buttons */}
       <AnimatePresence>
         {isOpen && (
@@ -105,7 +121,7 @@ const FloatingActionButton = () => {
               <motion.a
                 key={action.label}
                 href={action.href}
-                className={`absolute w-12 h-12 ${action.color} rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer`}
+                className={`absolute w-10 h-10 ${action.color} rounded-full flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer`}
                 custom={index}
                 variants={actionVariants}
                 initial="hidden"
@@ -117,8 +133,8 @@ const FloatingActionButton = () => {
                 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <action.icon className="h-5 w-5" />
-                <span className="absolute right-full mr-3 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <action.icon className="h-4 w-4" />
+                <span className="absolute right-full mr-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {action.label}
                 </span>
               </motion.a>
@@ -129,7 +145,7 @@ const FloatingActionButton = () => {
 
       {/* Main Button */}
       <motion.button
-        className="relative w-14 h-14 bg-primary hover:bg-primary/90 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+        className="relative w-12 h-12 bg-primary/90 hover:bg-primary rounded-full flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
         variants={buttonVariants}
         initial="hidden"
         animate="visible"
@@ -147,7 +163,7 @@ const FloatingActionButton = () => {
               transition={{ duration: 0.2 }}
               className="relative z-10"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
             </motion.div>
           ) : (
             <motion.div
@@ -158,7 +174,7 @@ const FloatingActionButton = () => {
               transition={{ duration: 0.2 }}
               className="relative z-10"
             >
-              <Plus className="h-6 w-6" />
+              <Plus className="h-5 w-5" />
             </motion.div>
           )}
         </AnimatePresence>
