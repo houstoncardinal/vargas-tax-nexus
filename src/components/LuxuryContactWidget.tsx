@@ -157,7 +157,7 @@ const LuxuryContactWidget: React.FC<LuxuryContactWidgetProps> = ({ onStartForm }
       <AnimatePresence>
         {isExpanded && (
           <motion.div
-            className="absolute bottom-20 right-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+            className="absolute bottom-20 right-0 w-[90vw] max-w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
             variants={popupVariants}
             initial="hidden"
             animate="visible"

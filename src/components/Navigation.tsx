@@ -197,7 +197,7 @@ const Navigation = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[95vw] max-w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
                           onMouseEnter={() => setServicesHovered(true)}
                           onMouseLeave={() => setServicesHovered(false)}
                         >

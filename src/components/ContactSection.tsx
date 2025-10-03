@@ -72,7 +72,7 @@ const ContactSection = () => {
     <section 
       id="contact" 
       ref={elementRef}
-      className="py-24 bg-white"
+      className="py-24 bg-white overflow-x-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

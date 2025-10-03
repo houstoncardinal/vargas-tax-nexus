@@ -63,7 +63,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={elementRef}
-      className="relative min-h-screen bg-white flex items-center justify-center pt-20"
+      className="relative min-h-screen bg-white flex items-center justify-center pt-20 overflow-x-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">

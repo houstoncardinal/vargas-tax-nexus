@@ -115,7 +115,7 @@ const ServicesSection = () => {
     <section 
       id="services" 
       ref={elementRef}
-      className="py-24 elite-section relative overflow-hidden"
+      className="py-24 elite-section relative overflow-x-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 elite-pattern-dots opacity-5" />

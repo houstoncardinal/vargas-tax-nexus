@@ -52,7 +52,7 @@ const TrustIndicators = () => {
   ];
 
   return (
-    <section className="py-12 bg-muted/20 border-y border-border">
+    <section className="py-12 bg-muted/20 border-y border-border overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Trust Badges */}
         <div className="mb-12">

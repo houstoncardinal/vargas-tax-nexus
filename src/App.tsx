@@ -30,26 +30,28 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <AnimatePresence mode="wait">
-          {isLoading ? (
-            <LoadingScreen key="loading" />
-          ) : (
-                                    <BrowserRouter key="app">
-                          <Routes>
-                            <Route path="/" element={<Index />} />
-                            {/* Service Pages */}
-                            <Route path="/services/individual-tax-returns" element={<IndividualTaxReturns />} />
-                            <Route path="/services/business-tax-services" element={<BusinessTaxServices />} />
-                            <Route path="/services/tax-planning-strategy" element={<TaxPlanningStrategy />} />
-                            <Route path="/services/tax-resolution-services" element={<TaxResolutionServices />} />
-                            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                            <Route path="*" element={<NotFound />} />
-                          </Routes>
-                        </BrowserRouter>
-          )}
-        </AnimatePresence>
+        <div className="overflow-x-hidden w-full">
+          <Toaster />
+          <Sonner />
+          <AnimatePresence mode="wait">
+            {isLoading ? (
+              <LoadingScreen key="loading" />
+            ) : (
+              <BrowserRouter key="app">
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  {/* Service Pages */}
+                  <Route path="/services/individual-tax-returns" element={<IndividualTaxReturns />} />
+                  <Route path="/services/business-tax-services" element={<BusinessTaxServices />} />
+                  <Route path="/services/tax-planning-strategy" element={<TaxPlanningStrategy />} />
+                  <Route path="/services/tax-resolution-services" element={<TaxResolutionServices />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+            )}
+          </AnimatePresence>
+        </div>
       </TooltipProvider>
     </QueryClientProvider>
   );

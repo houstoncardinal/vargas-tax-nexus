@@ -116,6 +116,13 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
   /* Elite Typography Enhancements */
   h1, h2, h3, h4, h5, h6 {
     font-feature-settings: "liga" 1, "kern" 1;
@@ -125,6 +132,18 @@
   /* Smooth Scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Ensure all images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent content overflow */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* Elite Selection Styling */
