@@ -30,24 +30,24 @@ const TrustIndicators = () => {
 
   const statistics = [
     {
-      number: "99.8%",
-      label: "Accuracy Rate",
-      icon: CheckCircle
+      number: "15+",
+      label: "Years of Service",
+      icon: Award
     },
     {
-      number: "$2.3M+",
-      label: "Refunds Secured",
+      number: "5,000+",
+      label: "Clients Helped",
       icon: Users
     },
     {
-      number: "24hrs",
+      number: "Same Day",
       label: "Response Time",
       icon: Clock
     },
     {
-      number: "15+",
-      label: "Years Experience",
-      icon: Award
+      number: "Year-Round",
+      label: "Support Available",
+      icon: CheckCircle
     }
   ];
 

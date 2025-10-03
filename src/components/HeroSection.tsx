@@ -114,7 +114,7 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               Trusted by thousands of individuals and businesses for expert tax preparation. 
-              Our certified professionals ensure accuracy, compliance, and maximum refunds.
+              Our certified professionals ensure accuracy, compliance, and help you understand your tax situation.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -245,7 +245,7 @@ const HeroSection = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.7 }}
                 >
-                  "Professional, reliable, and got me the biggest refund ever!"
+                  "Professional, knowledgeable, and very helpful with my tax situation."
                 </motion.p>
                 <motion.p 
                   className="text-gray-500 text-center text-sm"

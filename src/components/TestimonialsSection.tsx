@@ -7,8 +7,7 @@ const TestimonialsSection = () => {
       title: "Family-Owned Business",
       company: "Houston Auto Services",
       rating: 5,
-      content: "The Vargas family has been handling our business taxes for over 5 years. They found deductions we never knew existed and got us a much larger refund than expected. Professional, thorough, and trustworthy. They treat us like family!",
-      savings: "$4,200",
+      content: "The Vargas family has been handling our business taxes for over 5 years. They're thorough, professional, and always take the time to answer our questions. We really appreciate their attention to detail and friendly service.",
       service: "Business Tax Preparation"
     },
     {
@@ -17,7 +16,6 @@ const TestimonialsSection = () => {
       company: "Houston Tech Solutions",
       rating: 5,
       content: "I've been using Vargas Tax for 8 years now. They handle both my personal and business taxes with such care and attention to detail. When I had an IRS audit, they represented me and resolved everything quickly. Highly recommend!",
-      savings: "$2,800",
       service: "Tax Resolution & Audit Defense"
     },
     {
@@ -25,8 +23,7 @@ const TestimonialsSection = () => {
       title: "Property Management",
       company: "Houston Properties LLC",
       rating: 5,
-      content: "As real estate investors with multiple properties, our taxes are complex. Vargas Tax not only handles everything perfectly but also provides year-round tax planning advice that has saved us thousands. Their expertise is unmatched.",
-      savings: "$7,500",
+      content: "As real estate investors with multiple properties, our taxes are complex. Vargas Tax handles everything professionally and provides helpful tax planning advice throughout the year. Their expertise has been invaluable to our business.",
       service: "Investment Tax Planning"
     },
     {
@@ -34,8 +31,7 @@ const TestimonialsSection = () => {
       title: "Independent Consultant",
       company: "Houston Consulting Services",
       rating: 5,
-      content: "Switching to Vargas Tax was the best decision I made for my freelance business. They set up my quarterly payments, found deductions I was missing, and always respond quickly to my questions. Professional service at its finest.",
-      savings: "$3,100",
+      content: "Switching to Vargas Tax was a great decision for my freelance business. They helped set up my quarterly payments, identified deductions I was missing, and always respond quickly to my questions. Very professional service.",
       service: "Self-Employment Taxes"
     },
     {
@@ -43,8 +39,7 @@ const TestimonialsSection = () => {
       title: "Retired Educator",
       company: "Houston School District",
       rating: 5,
-      content: "After retirement, my tax situation became more complex with pensions and investments. The Vargas team explained everything clearly and made sure I wasn't overpaying. Their patience and expertise gave me peace of mind.",
-      savings: "$1,900",
+      content: "After retirement, my tax situation became more complex with pensions and investments. The Vargas team explained everything clearly and helped ensure I understood all my options. Their patience and expertise were very helpful.",
       service: "Retirement Tax Planning"
     },
     {
@@ -52,8 +47,7 @@ const TestimonialsSection = () => {
       title: "Medical Practitioner",
       company: "Houston Medical Center",
       rating: 5,
-      content: "Between my W-2 job and side consulting work, my taxes were a nightmare. Vargas Tax organized everything, maximized my deductions, and even helped me plan for next year. I can't imagine doing taxes with anyone else.",
-      savings: "$2,400",
+      content: "Between my W-2 job and side consulting work, my taxes were complicated. Vargas Tax helped organize everything, explained my deductions clearly, and provided planning advice for next year. Very happy with their service.",
       service: "Multi-Income Tax Prep"
     }
   ];
@@ -62,17 +56,17 @@ const TestimonialsSection = () => {
     {
       icon: Star,
       value: "4.9/5",
-      label: "Average Rating"
+      label: "Client Rating"
     },
     {
       icon: CheckCircle,
       value: "500+",
-      label: "5-Star Reviews"
+      label: "Client Reviews"
     },
     {
       icon: Award,
-      value: "99%",
-      label: "Client Retention"
+      value: "15+ Yrs",
+      label: "Experience"
     }
   ];
 
@@ -85,8 +79,7 @@ const TestimonialsSection = () => {
             What Our Clients Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Don't just take our word for it. See what thousands of satisfied clients 
-            have to say about our professional tax services.
+            Read real experiences from clients we've worked with over the years.
           </p>
           
           {/* Stats */}
@@ -134,13 +127,10 @@ const TestimonialsSection = () => {
                 "{testimonial.content}"
               </p>
 
-              {/* Service & Savings */}
-              <div className="mb-6 p-3 bg-secondary/10 rounded-lg border border-secondary/20">
-                <div className="text-sm text-secondary font-medium mb-1">
+              {/* Service Info */}
+              <div className="mb-6 p-3 bg-muted/50 rounded-lg border border-border">
+                <div className="text-sm text-muted-foreground font-medium">
                   Service: {testimonial.service}
-                </div>
-                <div className="text-lg font-bold text-secondary">
-                  Tax Savings: {testimonial.savings}
                 </div>
               </div>
 
@@ -164,18 +154,18 @@ const TestimonialsSection = () => {
         <div className="text-center mt-16">
           <div className="bg-gradient-card rounded-2xl p-8 shadow-elegant border border-border">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Join Our Satisfied Clients
+              Ready to Work Together?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Experience the same level of professional service and tax savings. 
-              Schedule your free consultation today.
+              We'd be happy to learn about your tax situation and see how we can help. 
+              Get in touch for a no-obligation consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-3 bg-secondary text-secondary-foreground font-medium rounded-lg hover:bg-secondary/90 transition-colors duration-300 shadow-glow">
-                Schedule Free Consultation
+                Contact Us
               </button>
               <button className="px-8 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-muted transition-colors duration-300">
-                Read More Reviews
+                View More Reviews
               </button>
             </div>
           </div>

@@ -282,10 +282,8 @@ const Navigation = () => {
                             >
                               <div className="text-center space-y-3">
                                 <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                                  <CheckCircle className="h-4 w-4 text-green-500" />
-                                  <span className="font-medium">Filing fees start as low as</span>
-                                  <span className="text-lg font-bold text-primary">$295</span>
-                                  <span className="text-xs text-gray-500">for first-time filers</span>
+                                  <CheckCircle className="h-4 w-4 text-primary" />
+                                  <span className="font-medium">Simple, transparent pricing</span>
                                 </div>
                                 <Button
                                   size="sm"
@@ -297,7 +295,7 @@ const Navigation = () => {
                                     }
                                   }}
                                 >
-                                  Get Started
+                                  Learn More
                                 </Button>
                               </div>
                             </motion.div>

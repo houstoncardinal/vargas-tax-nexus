@@ -29,8 +29,8 @@ const AboutSection = () => {
     },
     {
       icon: Award,
-      number: "99.8%",
-      label: "Success Rate"
+      number: "Professional",
+      label: "Certifications"
     },
     {
       icon: Star,
@@ -58,8 +58,8 @@ const AboutSection = () => {
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               As a family-owned business, our team combines decades of experience with 
-              the latest tax knowledge to ensure you receive maximum refunds and 
-              maintain full compliance with tax regulations.
+              current tax knowledge to help you navigate your tax situation with confidence 
+              and stay compliant with tax regulations.
             </p>
 
             {/* Certifications */}
@@ -143,9 +143,9 @@ const AboutSection = () => {
                     </div>
                   </div>
                   <p className="text-muted-foreground italic mb-3">
-                    "The Vargas family team is absolutely fantastic! They found deductions 
-                    we never knew existed and got us a much larger refund than expected. 
-                    Professional, thorough, and trustworthy."
+                    "The Vargas team is knowledgeable and thorough. They helped us understand 
+                    our tax situation better and made sure everything was filed correctly. 
+                    Professional and trustworthy."
                   </p>
                   <div className="font-semibold text-foreground">
                     - Local Family Business Owner

@@ -11,11 +11,11 @@ const FAQSection = () => {
     },
     {
       question: "How much do your services cost?",
-      answer: "Our pricing depends on the complexity of your tax situation. Individual returns start at $150, while business returns vary based on entity type and complexity. We provide transparent, upfront pricing during your free consultation with no hidden fees. Most clients find our fees are more than offset by the additional refunds we secure."
+      answer: "Our pricing depends on the complexity of your tax situation. Individual returns typically start at $150, while business returns vary based on entity type and complexity. We provide transparent, upfront pricing during your free consultation with no hidden fees."
     },
     {
       question: "Do you offer year-round tax planning services?",
-      answer: "Absolutely! Tax planning shouldn't be a once-a-year activity. We offer quarterly check-ins, estimated tax payment planning, and strategic advice throughout the year to minimize your tax liability. Our year-round clients typically save 15-30% more than those who only seek help during tax season."
+      answer: "Yes! Tax planning is most effective when it happens throughout the year, not just during tax season. We offer quarterly check-ins, estimated tax payment planning, and strategic advice to help you make informed financial decisions year-round."
     },
     {
       question: "What if I get audited by the IRS?",
@@ -27,7 +27,7 @@ const FAQSection = () => {
     },
     {
       question: "Can you help with back taxes and IRS debt?",
-      answer: "Yes, we specialize in tax resolution services. We can help negotiate payment plans, reduce penalties, set up installment agreements, and in some cases, settle tax debt for less than what's owed. Our success rate in resolving IRS issues is over 95%."
+      answer: "Yes, we specialize in tax resolution services. We can help negotiate payment plans, work on penalty reduction, set up installment agreements, and explore options for resolving tax debt. Each situation is unique, and we'll work with you to find the best approach."
     },
     {
       question: "Do you handle business taxes for different entity types?",
@@ -35,7 +35,7 @@ const FAQSection = () => {
     },
     {
       question: "What makes Vargas Tax different from other preparers?",
-      answer: "Our combination of professional expertise, personalized service, and year-round support sets us apart. Unlike seasonal preparers, we're available all year for questions and planning. Our certified professionals average 15+ years of experience, and we guarantee our work with audit protection included."
+      answer: "Our combination of professional expertise, personalized service, and year-round availability sets us apart. Unlike seasonal preparers, we're here all year for questions and planning. Our certified professionals average 15+ years of experience, and we stand behind our work with comprehensive support."
     },
     {
       question: "How quickly can you prepare my tax return?",
@@ -110,18 +110,18 @@ const FAQSection = () => {
         <div className="text-center mt-16">
           <div className="bg-gradient-card rounded-2xl p-8 shadow-elegant border border-border">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Still Have Questions?
+              Have More Questions?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Our tax professionals are here to help. Schedule a free consultation 
-              to discuss your specific situation and get personalized answers.
+              We're here to help answer any questions you have about your tax situation. 
+              Reach out to discuss your specific needs and get personalized guidance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-3 bg-secondary text-secondary-foreground font-medium rounded-lg hover:bg-secondary/90 transition-colors duration-300 shadow-glow">
-                Schedule Free Consultation
+                Get in Touch
               </button>
               <button className="px-8 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-muted transition-colors duration-300">
-                Contact Us Directly
+                Call Us
               </button>
             </div>
           </div>
