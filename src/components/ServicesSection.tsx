@@ -136,9 +136,8 @@ const ServicesSection = () => {
             animate={isVisible ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
             transition={{ delay: 0.3, type: "spring" as const }}
           >
-            <Crown className="h-5 w-5 text-premium-gold" />
-            <span className="text-sm font-semibold text-foreground">Elite Services</span>
-            <Sparkles className="h-4 w-4 text-premium-gold animate-pulse" />
+            <CheckCircle className="h-5 w-5 text-primary" />
+            <span className="text-sm font-semibold text-foreground">Comprehensive Services</span>
           </motion.div>
 
           <motion.h2 
@@ -294,7 +293,7 @@ const ServicesSection = () => {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-3xl font-bold text-foreground elite-gradient-text">
-                Ready to Get Started?
+                Questions About Our Services?
               </h3>
             </motion.div>
             
@@ -304,8 +303,8 @@ const ServicesSection = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 1.4 }}
             >
-              Schedule a free consultation with our certified tax professionals. 
-              We'll review your situation and provide personalized recommendations.
+              Connect with our certified tax professionals to discuss your needs. 
+              We're here to answer your questions and help you understand your options.
             </motion.p>
             
             <motion.div 
@@ -329,8 +328,8 @@ const ServicesSection = () => {
                   }}
                 >
                   <span className="flex items-center gap-2">
-                    <Sparkles className="h-5 w-5" />
-                    Schedule Free Consultation
+                    <Users className="h-5 w-5" />
+                    Contact Us
                   </span>
                 </Button>
               </motion.div>

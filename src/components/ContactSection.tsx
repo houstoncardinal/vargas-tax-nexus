@@ -107,8 +107,8 @@ const ContactSection = () => {
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.7, duration: 0.8 }}
           >
-            Ready to maximize your tax savings? Contact us today for a free consultation. 
-            We're here to help you navigate your tax needs with confidence.
+            Have questions about your tax situation? We're here to help. 
+            Reach out to discuss your needs and learn how we can assist you.
           </motion.p>
         </motion.div>
 
@@ -174,18 +174,18 @@ const ContactSection = () => {
                   <Calendar className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Schedule Your Free Consultation
+                  Let's Discuss Your Needs
                 </h3>
               </div>
               <p className="text-gray-600 mb-6">
-                Book a complimentary 30-minute consultation to discuss your tax situation. 
-                No obligation, just expert advice tailored to your needs.
+                Schedule a complimentary consultation to review your tax situation. 
+                We'll answer your questions and provide guidance on the best path forward.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 flex-1">
                   <span className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
-                    Book Appointment
+                    Schedule Consultation
                   </span>
                 </Button>
                 <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 flex-1">

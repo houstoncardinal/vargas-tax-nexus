@@ -11,7 +11,8 @@ import {
   ChevronDown,
   Clock,
   MapPin,
-  Star
+  Star,
+  CheckCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -169,12 +170,12 @@ const LuxuryContactWidget: React.FC<LuxuryContactWidgetProps> = ({ onStartForm }
               
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-2">
-                  <Star className="w-4 h-4 text-yellow-300" />
-                  <span className="text-sm font-medium">Premium Service</span>
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium">Professional Service</span>
                 </div>
-                <h3 className="text-xl font-bold mb-1">How can we help?</h3>
+                <h3 className="text-xl font-bold mb-1">How can we assist you?</h3>
                 <p className="text-primary-foreground/80 text-sm">
-                  Get started with your tax preparation today
+                  Learn more about our tax preparation services
                 </p>
               </div>
             </div>

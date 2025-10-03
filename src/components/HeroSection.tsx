@@ -19,8 +19,8 @@ const HeroSection = () => {
     },
     {
       icon: TrendingUp,
-      text: "Maximize Your Refund",
-      description: "Average 27% increase in refunds"
+      text: "Optimize Your Return",
+      description: "Find all eligible deductions"
     },
     {
       icon: Users,
@@ -30,10 +30,10 @@ const HeroSection = () => {
   ];
 
   const stats = [
-    { label: "Years of Excellence", value: "25+", icon: Star },
-    { label: "Satisfied Clients", value: "10,000+", icon: Users },
-    { label: "Average Refund Increase", value: "27%", icon: TrendingUp },
-    { label: "Success Rate", value: "99.8%", icon: CheckCircle }
+    { label: "Years of Service", value: "25+", icon: Star },
+    { label: "Clients Served", value: "10,000+", icon: Users },
+    { label: "Tax Returns Filed", value: "50K+", icon: TrendingUp },
+    { label: "Client Satisfaction", value: "4.9/5", icon: CheckCircle }
   ];
 
   const containerVariants = {
@@ -137,7 +137,7 @@ const HeroSection = () => {
                   }}
                 >
                   <span className="flex items-center gap-2">
-                    Schedule Consultation
+                    Get Started
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </Button>
@@ -207,7 +207,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
               >
-                Why Choose Vargas Tax?
+                Our Experience
               </motion.h3>
               
               <div className="space-y-6">

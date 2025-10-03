@@ -278,18 +278,18 @@ const ProcessSection = () => {
           className="text-center bg-white rounded-2xl p-12 shadow-sm border border-gray-200"
         >
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Ready to Get Started?
+            Have Questions?
           </h3>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Begin your tax preparation journey today. Our family-owned business is here to help you 
-            maximize your refund and ensure your taxes are prepared accurately and on time.
+            Our family-owned business is here to help you navigate the tax preparation process. 
+            Reach out to learn more about how we can assist with your tax needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#contact"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
             >
-              Schedule Free Consultation
+              Get in Touch
             </a>
             <a
               href="tel:(832) 287-9056"
